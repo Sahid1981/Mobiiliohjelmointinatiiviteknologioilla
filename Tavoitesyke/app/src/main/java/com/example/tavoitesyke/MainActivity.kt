@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TavoiteSyke(modifier: Modifier = Modifier) {
     var ageInput by remember { mutableStateOf("") }
-    val age = ageInput.toFloatOrNull() ?:0.0F
+    val age = ageInput.replace(',', '.').toFloatOrNull() ?:0.0F
     val upper = if (age > 0) (220 - age) * 0.85f else 0.0F
     val lower = if (age > 0) (220 - age) * 0.65f else 0.0F
     val upperFormatted = String.format("%.2f",upper)
